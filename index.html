@@ -1,0 +1,114 @@
+<!--
+THESIS: Matchday Forecast turns a clearly simulated sports slate into an inspectable prediction desk, not a live-score or betting terminal.
+OWN-WORLD: A bright, flat match-sheet palette of ink, cobalt, and citrus; fixture rows read like a coach's annotated ledger, not a wall of generic cards.
+STORY: Visitors choose a sport, scan demo fixtures, and open a matchup to see the model inputs, outcome probabilities, and illustrative odds.
+FIRST VIEWPORT: A compact ink masthead and demo warning sit above the page title; filters and fixture ledger fill the broad center, with the selected model readout on the right.
+FORM: Operate surface; ranked first: a touchline ledger with a pinned analysis column, chosen for quick scanning and transparent model detail.
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f6f1">
+    <meta name="description" content="Explore simulated football and basketball fixtures with transparent, illustrative predictions.">
+    <title>Matchday Forecast — Demo prediction desk</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to match list</a>
+    <header class="masthead">
+      <a class="brand" href="./" aria-label="Matchday Forecast home">
+        <span class="brand-mark" aria-hidden="true">M<span>.</span></span>
+        <span>matchday<br><strong>forecast</strong></span>
+      </a>
+      <div class="masthead-center">
+        <span class="desk-label">THE MATCH DESK</span>
+        <span class="desk-date" id="desk-date"></span>
+      </div>
+      <div class="demo-indicator"><span class="demo-indicator-dot" aria-hidden="true"></span> DEMO ENVIRONMENT</div>
+    </header>
+
+    <main id="main">
+      <section class="demo-notice" aria-label="Demo data notice">
+        <span class="notice-symbol" aria-hidden="true">i</span>
+        <p><strong>Illustrative data only.</strong> Fixtures, scores, team stats, predictions, and odds on this page are simulated. No live feed is connected; nothing here is betting advice.</p>
+        <span class="notice-tag">SIMULATED</span>
+      </section>
+
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="page-heading">
+          <div>
+            <p class="section-label">A STUDY IN GAME STATES</p>
+            <h1 id="page-title">Read the match.<br><span>Not the noise.</span></h1>
+          </div>
+          <p class="heading-copy">A transparent prediction model for a fictional matchday. Explore the inputs, change the home advantage, and see how the outlook shifts.</p>
+        </div>
+
+        <div class="sport-switcher" role="group" aria-label="Choose a sport">
+          <button type="button" class="sport-button is-active" data-sport="football" aria-pressed="true">
+            <span class="sport-icon football-icon" aria-hidden="true">F</span> Football <span class="sport-count" id="football-count">—</span>
+          </button>
+          <button type="button" class="sport-button" data-sport="basketball" aria-pressed="false">
+            <span class="sport-icon basketball-icon" aria-hidden="true">B</span> Basketball <span class="sport-count" id="basketball-count">—</span>
+          </button>
+        </div>
+
+        <div class="dashboard">
+          <section class="fixtures-column" aria-labelledby="fixtures-title">
+            <div class="fixtures-header">
+              <div>
+                <h2 id="fixtures-title">Match slate</h2>
+                <span class="fixture-total" id="fixture-total" aria-live="polite"></span>
+              </div>
+              <label class="search-field">
+                <span class="sr-only">Search matches</span>
+                <svg aria-hidden="true" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="5.5"></circle><path d="m13 13 4 4"></path></svg>
+                <input id="match-search" type="search" placeholder="Find a team…" autocomplete="off">
+              </label>
+            </div>
+
+            <div class="filters" aria-label="Filter fixtures">
+              <div class="filter-group" role="group" aria-label="Fixture status">
+                <button class="filter-button is-active" data-status="all" aria-pressed="true" type="button">All matches</button>
+                <button class="filter-button" data-status="in-progress" aria-pressed="false" type="button"><span class="filter-live-dot" aria-hidden="true"></span>In progress</button>
+                <button class="filter-button" data-status="upcoming" aria-pressed="false" type="button">Upcoming</button>
+              </div>
+              <label class="select-wrap">
+                <span class="sr-only">Sort matches</span>
+                <select id="sort-select">
+                  <option value="schedule">By schedule</option>
+                  <option value="confidence">By model confidence</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="slate-labels" aria-hidden="true">
+              <span>FIXTURE</span><span>SIMULATED SCORE</span><span>MODEL LEAN</span>
+            </div>
+            <div class="fixture-list" id="fixture-list" aria-label="Demo fixtures"></div>
+            <div class="empty-state" id="empty-state" hidden>
+              <span class="empty-mark" aria-hidden="true">—</span>
+              <h3>No matches in this view</h3>
+              <p>Try a different sport, status, or search term.</p>
+            </div>
+            <p class="list-footnote"><span class="demo-indicator-dot" aria-hidden="true"></span> Every fixture in this slate is simulated</p>
+          </section>
+
+          <aside class="analysis-panel" aria-label="Prediction details" aria-live="polite">
+            <div class="analysis-topline">
+              <span class="analysis-kicker">MODEL READOUT</span>
+              <span class="readout-dot" aria-hidden="true"></span>
+            </div>
+            <div id="analysis-content"></div>
+          </aside>
+        </div>
+        <footer class="page-footer">
+          <span>Built for curiosity, not certainty.</span>
+          <span>DEMO MODEL <span aria-hidden="true">·</span> NOT A LIVE SERVICE</span>
+        </footer>
+      </section>
+    </main>
+  </body>
+</html>
