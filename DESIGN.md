@@ -1,8 +1,8 @@
 # Design system
 
-## Matchday Forecast demo desk
+## Bixray's Live Predictor demo desk
 
-The interface is an operate-first fixture ledger: visitors scan a match slate, then inspect one transparent model readout. It avoids the visual language of a live sportsbook or broadcast product because this release is a static simulation.
+The interface is an operate-first fixture ledger: visitors scan a match slate, then inspect one transparent model readout. Bixray's name leads the masthead and prediction desk; the demo label makes it clear that this release is a static simulation, not a live sportsbook or broadcast feed.
 
 ### Palette and type
 

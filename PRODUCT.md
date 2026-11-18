@@ -12,7 +12,12 @@ Inferred for this first build: sports fans who want to explore likely game outco
 Provide a usable football and basketball prediction dashboard. Success means visitors can scan a match slate, inspect a matchup's estimate, and understand the assumptions behind it.
 
 ## Positioning
+
 This first version makes prediction inputs and calculations visible instead of presenting a bare pick. The data and model outputs are illustrative, not validated.
+
+## Brand Commitments
+
+The user chose the product name **Bixray's Live Predictor**. Existing data-demo notices remain explicit: the current site has no live feed.
 
 ## Operating Context
 Visitors use a responsive web page to switch sports, search teams and competitions, filter match states, and adjust a home-advantage assumption while viewing a selected matchup.

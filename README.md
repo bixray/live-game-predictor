@@ -1,4 +1,4 @@
-# Matchday Forecast
+# Bixray's Live Predictor
 
 A responsive football and basketball prediction dashboard with clearly labeled simulated fixtures, scores, team ratings, predictions, and illustrative odds. It is a demo—not a live sports feed, bookmaker connection, or source of betting advice.
 
